@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap">
+    <title>Random Images</title>
+    <style>
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+
+      .grid-item {
+        width: 300px;
+        height: 300px;
+        background-color: #ccc;
+        border: 1px solid #aaa;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+      }
+
+      .grid-item img {
+        max-width: 100%;
+        max-height: 100%;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      }
+      .grid-item:hover img {
+        transform: scale(1.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        font-family: 'Playfair Display', serif; 
+        font-size: 28px; 
+        text-align: center; 
+        color: #333; 
+        margin-top: 50px; 
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Image Gallery</h1>
+    <div class="grid-container" id="imageContainer"></div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var gridContainer = document.getElementById('imageContainer');
+
+        // Fetch and add random images
+        for (var i = 0; i < 15; i++) {
+          var gridItem = document.createElement('div');
+          gridItem.className = 'grid-item';
+
+          var image = document.createElement('img');
+          image.src = 'https://source.unsplash.com/random/300x300/?sig=' + i; // Sig parameter is a special feature of the Unsplash API, and thanks to the sig parameter, different images will be obtained.
+          image.alt = 'Random Images ' + (i + 1);
+
+          gridItem.appendChild(image);
+          gridContainer.appendChild(gridItem);
+        }
+      });
+    </script>
+  </body>
+</html>

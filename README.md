@@ -1,5 +1,4 @@
-# image_gallery
-Image Gallery with JavaScript
+#Image Gallery with JavaScript
 
 # Image Gallery with JavaScript
 
